@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoMad</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Outfit:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- RESET --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        height: 100%;
+        font-family: "Inter", sans-serif;
+        overflow: hidden;
+      }
+
+      /* --- BACKGROUND SYSTEM --- */
+      .bg-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-size: cover;
+        background-position: center;
+        background-image: url("/assets/desktop.png"); /* Default Desktop */
+      }
+
+      @media (max-width: 768px) {
+        .bg-layer {
+          background-image: url("/assets/mobile.png"); /* Mobile Switch */
+          background-position: bottom center;
+        }
+      }
+
+      /* --- MAIN LAYOUT WRAPPER --- */
+      .wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px 20px;
+      }
+
+      /* --- LOGO --- */
+      .logo {
+        font-family: "Outfit", sans-serif;
+        font-size: 4rem;
+        color: #1a1a1a;
+        letter-spacing: -2px;
+        text-transform: uppercase;
+        margin-top: 20px;
+      }
+
+      /* --- BOTTOM CONTENT GROUP (Text + Form) --- */
+      .bottom-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Default spacing from bottom for desktop */
+        margin-bottom: 60px;
+      }
+
+      /* --- HERO TEXT --- */
+      .hero-text {
+        text-align: center;
+        margin-bottom: 25px; /* Space between text and email box */
+        color: #1a1a1a; /* Dark text to match logo */
+      }
+
+      .hero-text h2 {
+        font-family: "Outfit", sans-serif;
+        font-size: 2.5rem;
+        line-height: 1.1;
+        font-weight: 800;
+      }
+
+      .hero-text p {
+        font-size: 1.1rem;
+        margin-top: 8px;
+        font-weight: 400;
+        color: #333;
+      }
+
+      /* --- GLASS EMAIL BOX --- */
+      .glass-box {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+
+        padding: 25px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 420px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      /* --- FORM ELEMENTS --- */
+      input[type="email"] {
+        width: 100%;
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.7);
+        font-size: 1rem;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      input[type="email"]:focus {
+        background: white;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+      }
+
+      button {
+        width: 100%;
+        padding: 16px;
+        border-radius: 12px;
+        border: none;
+        background: #1a1a1a;
+        color: white;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      button:hover {
+        transform: scale(1.02);
+        background: #000;
+      }
+
+      /* --- MOBILE TWEAKS --- */
+      @media (max-width: 768px) {
+        .logo {
+          font-size: 2.8rem;
+          margin-top: 40px;
+        }
+
+        .bottom-content {
+          /* Push everything up to clear the bike */
+          margin-bottom: 220px;
+        }
+
+        .hero-text h2 {
+          font-size: 1.8rem; /* Smaller headline for phone */
+        }
+
+        .hero-text p {
+          font-size: 0.9rem;
+        }
+
+        .glass-box {
+          padding: 15px;
+          background: rgba(255, 255, 255, 0.35);
+        }
+
+        input[type="email"],
+        button {
+          padding: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-layer"></div>
+
+    <div class="wrapper">
+      <h1 class="logo">NoMad</h1>
+
+      <div class="bottom-content">
+        <div class="hero-text">
+          <h2>Just You, The Bike, and The Horizon.</h2>
+          <p>The ultimate mobile road trip experience.</p>
+        </div>
+
+        <div class="glass-box">
+          <form action="https://formspree.io/f/mvzqgqqn" method="POST">
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+            <div style="height: 10px"></div>
+            <button type="submit">Join Waitlist</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
